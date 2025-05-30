@@ -7,9 +7,9 @@ services:
     ports:
       - "5432:5432"
     environment:
-      POSTGRES_USER: nestuser
-      POSTGRES_PASSWORD: nestpass
-      POSTGRES_DB: nestdb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: moi@se
+      POSTGRES_DB: task-managerApp
     volumes:
       - postgres_data:/var/lib/postgresql/data
 

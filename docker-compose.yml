@@ -1,17 +1,17 @@
-version: '3.8'
+version: '3.9'
 
 services:
   postgres:
-    image: postgres:15
+    image: postgres:13
     container_name: postgres
     ports:
       - "5432:5432"
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: moi@se
-      POSTGRES_DB: task-managerApp
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
+      POSTGRES_DB: "task-manager_app"
+    networks:
+      - taskmanager
 
-volumes:
-  postgres_data:
+networks:
+  taskmanager:

@@ -5,7 +5,7 @@ Setup
 
     Clone the repository and install dependencies:
 
-$ git clone https://github.com/yourusername/task-manager-api.git
+$ git clone https://github.com/A2kmoise/task-manager-api.git
 $ cd task-manager-api
 $ yarn install
 

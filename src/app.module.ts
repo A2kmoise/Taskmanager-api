@@ -6,6 +6,8 @@ import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
 import { TaskModule } from './task/task.module';
+import { Task } from './task/task.entity';
+import { User } from './user/user.entity';
 
 @Module({
   imports: [
@@ -19,6 +21,7 @@ import { TaskModule } from './task/task.module';
         username: configService.get<string>('DB_USERNAME'),
         password: configService.get<string>('DB_PASSWORD'),
         database: configService.get<string>('DB_DATABASE'),
+        entities: [User, Task],
         autoLoadEntities: true,
         synchronize: true,
       }),

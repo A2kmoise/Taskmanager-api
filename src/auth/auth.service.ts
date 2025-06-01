@@ -42,9 +42,7 @@ try {
             id: user.id,
             email: user.email
         },
-        access_token: {
-            token
-        }
+        access_token: token
        }
 
 } catch (error) {

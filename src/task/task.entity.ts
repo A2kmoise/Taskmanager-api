@@ -10,6 +10,9 @@ export class Task {
     title:string;
 
     @Column()
+    description: string
+
+    @Column()
     completed: boolean;
 
     @ManyToOne(() => User, user => user.tasks, { onDelete: 'CASCADE'})

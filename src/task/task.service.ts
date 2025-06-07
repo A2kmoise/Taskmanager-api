@@ -10,6 +10,8 @@ export class TaskService {
     constructor(@InjectRepository(Task) private taskRepository: Repository<Task>) { }
 
     async createTask(dto) {
+        try {
+            
         //find if task exists
         const extinguishtask = await this.taskRepository.findOne({ where: { title: dto.title } });
         if (extinguishtask) throw new ConflictException('Task already exists');
@@ -27,6 +29,9 @@ export class TaskService {
                 title: task.title,
                 description: task.description
             }
+        }
+                } catch (error) {
+            console.error(error);
         }
 
     }

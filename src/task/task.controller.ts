@@ -21,8 +21,8 @@ export class TaskController {
     }
 
     @Patch(':id')
-    updateTaskById(@Param() id:number){
-        return this.taskService.updateTaskById(id)
+    updateTaskById(@Param() id:number, dto:TaskDto){
+        return this.taskService.updateTaskById(id,dto)
     }
 
     @Delete(':id')

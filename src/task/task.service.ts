@@ -56,18 +56,24 @@ export class TaskService {
         }
     }
 
-   async  updateTaskById(id) {
+   async  updateTaskById(id, dto) {
         // find if task exists
         const task =  await this.taskRepository.findOne({where:{ id }});
         if (!task) throw new NotFoundException('This task doesn\'t exist');
            //update a task
 
-      /*  const updatedtask = await this.taskRepository.update({
+      const updatedtask = this.taskRepository.merge(task, dto )
 
-        })*/
+      await this.taskRepository.save(updatedtask);
     }
 
-    deleteTaskById(id) {
-        return 'Task deleted';
+    async deleteTaskById(id) {
+      const result = await this.taskRepository.delete({id});
+
+      if ( result ) {
+        return {
+            message: "Task deleted"
+        }
+      }
     }
 }

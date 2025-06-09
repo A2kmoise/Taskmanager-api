@@ -7,8 +7,8 @@ export class TaskController {
     constructor( private taskService : TaskService) {}
 
     @Post('/')
-    createTask(@Body() dto:TaskDto){
-        return this.taskService.createTask(dto)
+    createTask(@Param() id:number,dto:TaskDto){
+        return this.taskService.createTask(id,dto)
     }
     @Get('/')
     getTask(){

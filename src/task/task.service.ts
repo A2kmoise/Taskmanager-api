@@ -4,12 +4,13 @@ import { Task } from './task.entity';
 import { Repository } from 'typeorm';
 import { ExceptionsHandler } from '@nestjs/core/exceptions/exceptions-handler';
 import { title } from 'process';
+import { TaskDto } from './dto';
 
 @Injectable()
 export class TaskService {
     constructor(@InjectRepository(Task) private taskRepository: Repository<Task>) { }
 
-    async createTask(dto) {
+    async createTask(id, dto: TaskDto) {
         try {
             
         //find if task exists

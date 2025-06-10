@@ -12,7 +12,7 @@ export class Task {
     @Column()
     description: string
 
-    @Column()
+    @Column({ type: 'boolean', default: false })
     completed: boolean;
 
     @ManyToOne(() => User, user => user.tasks, { onDelete: 'CASCADE'})

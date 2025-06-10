@@ -10,7 +10,7 @@ import { TaskDto } from './dto';
 export class TaskService {
     constructor(@InjectRepository(Task) private taskRepository: Repository<Task>) { }
 
-    async createTask(id, dto: TaskDto) {
+    async createTask( dto: TaskDto) {
         try {
             
         //find if task exists
@@ -19,7 +19,7 @@ export class TaskService {
         //create a task
         const task = await this.taskRepository.create({
             title: dto.title,
-            description: dto.description
+            description: dto.description,
         });
 
         await this.taskRepository.save(task);
@@ -47,9 +47,9 @@ export class TaskService {
     }
     }
 
-    async getTaskById(id) {
+    async getTaskById(id: number) {
         //find if task exists
-        const task = await this.taskRepository.findOne({ where: id});
+        const task = await this.taskRepository.findOne({ where:{id} });
         if (!task) throw new NotFoundException('This task doesn\'t exist');
 
         return {

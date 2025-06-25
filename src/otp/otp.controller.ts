@@ -8,8 +8,8 @@ export class OtpController {
     constructor(private otpService: OtpService) { }
 
     @Get('generate')
-    generateOtp() {
-        const otp = this.otpService.generateOtp()
+    async sendOtp(@Body('email') email:string) {
+      await this.otpService.sendOtp(email)
     }
 
     @Post('verify')

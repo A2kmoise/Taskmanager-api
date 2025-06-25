@@ -8,6 +8,7 @@ import { UserModule } from './user/user.module';
 import { TaskModule } from './task/task.module';
 import { Task } from './task/task.entity';
 import { User } from './user/user.entity';
+import { OtpModule } from './otp/otp.module';
 
 @Module({
   imports: [
@@ -30,6 +31,7 @@ import { User } from './user/user.entity';
     AuthModule,
     UserModule,
     TaskModule,
+    OtpModule,
   ],
   controllers: [AppController],
   providers: [AppService],
